@@ -770,7 +770,7 @@ function dismissPopup() {
 	
 	function openPopup(buttonElement, section) {
 	
-	document.getElementById('popup').style.display = 'flex';
+	//document.getElementById('popup').style.display = 'flex';
     const tableNumber = buttonElement.innerText; // Get the table number
     const tableKey = `${section}_table_${tableNumber}`; // Create a unique key for each section and table
     localStorage.setItem('currentTable', tableKey);
