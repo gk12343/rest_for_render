@@ -46,6 +46,8 @@ app.secret_key = os.urandom(24)
 
 socketio = SocketIO(app)
 
+
+
 alert_queue = queue.Queue()  # Queue to hold alert messages for real-time updates
 
 class FileChangeHandler(FileSystemEventHandler):
@@ -325,14 +327,21 @@ def monitor_localtunnel():
             break
 
 
+# WebSocket event handling
+@socketio.on('message')
+def handle_message(data):
+    print(f"Received message: {data}")
+    socketio.send('Message received!')
+
+
 if __name__ == '__main__':
     # Start Ngrok
     # Start the Flask app in a separate thread first
-    thread = Thread(target=monitor_localtunnel)
-    thread.start()
+    #thread = Thread(target=monitor_localtunnel)
+    #thread.start()
 
     # Give Flask a moment to start up
-    time.sleep(1)
+    #time.sleep(1)
 
 
 
