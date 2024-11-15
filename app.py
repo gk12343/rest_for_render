@@ -362,6 +362,6 @@ if __name__ == '__main__':
     observer_thread.start()
 
     # Keep the main thread alive
-    thread.join()
+    #thread.join()
 
     socketio.run(app, host='0.0.0.0', port=5000)
